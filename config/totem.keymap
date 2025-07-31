@@ -81,6 +81,24 @@
         hold-trigger-on-release;
         hold-trigger-key-positions = <KEYS_R THUMBS>;
       };
+
+      hlh: hold_layer_hold {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "hold-preferred";
+        tapping-term-ms = <200>;
+        quick-tap-ms = <200>;
+        bindings = <&mo>, <&kp>;
+      }
+
+      hlt: hold_layer_tap {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "tap-preferred";
+        tapping-term-ms = <200>;
+        quick-tap-ms = <200>;
+        bindings = <&mo>, <&kp>;
+      }
     };
 
         keymap {
@@ -106,7 +124,7 @@ label= "BASE"                              ;
                 &kp X       &kp F       &kp D       &kp P       &kp Q           &kp J       &kp SQT     &kp O       &kp U       &kp DOT
                 &lh LSHFT N &lh LALT S  &lh LCTRL T &lh LMETA C &kp Y           &kp M       &rh LMETA H &rh LCTRL A &rh LALT E  &rh RSHFT I
     &kp Q       &kp B       &kp V       &kp K       &kp G       &kp W           &kp Z       &kp L       &kp SEMI    &kp FSLH    &kp COMMA    &kp BSLH
-                                &kp DEL   &lt NAV SPACE   &shft FUN LSHIFT      &lt NUM BSPC &lt SYM R  &none
+                                &kp DEL   &hlt NAV SPACE   &shft FUN LSHFT      &hlt NUM BSPC &hlh SYM R  &none
                         >;
                 };
 
