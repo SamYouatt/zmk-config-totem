@@ -93,7 +93,7 @@
         bindings = <&kp>, <&kp>;
       };
 
-      lhr: left_home_row {
+      lh: left_home_row {
         compatible = "zmk,behavior-hold-tap";
         #binding-cells = <2>;
         flavor = "balanced";
@@ -105,7 +105,7 @@
         hold-trigger-key-positions = <KEYS_L THUMBS>;
       };
 
-      rhr: right_home_row {
+      rh: right_home_row {
         compatible = "zmk,behavior-hold-tap";
         #binding-cells = <2>;
         flavor = "balanced";
@@ -139,7 +139,7 @@ label= "BASE";
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
                 &kp X       &kp F       &kp D       &kp P       &kp Q           &kp J       &kp SQT     &kp O       &kp U       &kp DOT
-                &mt LGUI N  &mt LALT S  &mt LCTRL T &mt LSHFT C &kp Y           &kp M       &mt RSHFT H &mt RCTRL A &mt RALT E  &mt RGUI I
+                &lh LSHFT N &lh LALT S  &lh LCTRL T &lh LMETA C &kp Y           &kp M       &rh LMETA H &rh LCTRL A &rh LALT E  &rh RSHFT I
     &kp Q       &kp B       &kp V       &kp K       &kp G       &kp W           &kp Z       &kp L       &kp SEMI    &kp FSLH    &kp COMMA    &kp BSLH
                                 &kp DEL   &lt NAV SPACE   &shft NAV LSHIFT          &kp BSPC   &lt SYM R   &kp BSPC
                         >;
