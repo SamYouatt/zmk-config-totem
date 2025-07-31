@@ -10,12 +10,9 @@
 //
 // e
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-       
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/outputs.h>
 #include "key_pos.h"
 
 #define BASE 0
@@ -24,151 +21,153 @@
 #define NAV  3
 #define FUN  4
 #define MISC 5
-
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left hand
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right hand
 #define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                      // thumbs
 
 / {
     behaviors {
-      quick_shift: quick_shift {
-        compatible = "zmk,behavior-sticky-key";
-        #binding-cells = <1>;
-        bindings = <&kp>;
-        release-after-ms = <1000>;
-        quick-release;
-      };
+        quick_shift: quick_shift {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            release-after-ms = <1000>;
+            quick-release;
+        };
 
-      shft: shft {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
-        flavor = "tap-preferred";
-        tapping-term-ms = <200>;
-        quick-tap-ms = <200>;
-        bindings = <&mo>, <&quick_shift>;
-      };
+        shft: shft {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            bindings = <&mo>, <&quick_shift>;
+        };
 
-      hrm: home_row_mod {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
-        flavor = "balanced";
-        tapping-term-ms = <200>;
-        quick-tap-ms = <200>;
-        require-prior-idle-ms = <125>;
-        bindings = <&kp>, <&kp>;
-      };
+        hrm: home_row_mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <125>;
+            bindings = <&kp>, <&kp>;
+        };
 
-      lh: left_home_row {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
-        flavor = "balanced";
-        tapping-term-ms = <300>;
-        quick-tap-ms = <150>;
-        bindings = <&kp>, <&kp>;
-        require-prior-idle-ms = <150>;
-        hold-trigger-on-release;
-        hold-trigger-key-positions = <KEYS_L THUMBS>;
-      };
+        lh: left_home_row {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <300>;
+            quick-tap-ms = <150>;
+            bindings = <&kp>, <&kp>;
 
-      rh: right_home_row {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
-        flavor = "balanced";
-        tapping-term-ms = <300>;
-        quick-tap-ms = <150>;
-        bindings = <&kp>, <&kp>;
-        require-prior-idle-ms = <150>;
-        hold-trigger-on-release;
-        hold-trigger-key-positions = <KEYS_R THUMBS>;
-      };
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <KEYS_L THUMBS 20 21 10 0 1 11 22 2 3 4 12 13 14 23 24 25 32 33 34 35 36 37>;
+        };
 
-      hlh: hold_layer_hold {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
-        flavor = "hold-preferred";
-        tapping-term-ms = <200>;
-        quick-tap-ms = <200>;
-        bindings = <&mo>, <&kp>;
-      };
+        rh: right_home_row {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <300>;
+            quick-tap-ms = <150>;
+            bindings = <&kp>, <&kp>;
 
-      hlt: hold_layer_tap {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
-        flavor = "tap-preferred";
-        tapping-term-ms = <200>;
-        quick-tap-ms = <200>;
-        bindings = <&mo>, <&kp>;
-      };
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <KEYS_R THUMBS 5 6 7 8 9 15 16 17 18 19 26 27 28 29 30 31 35 36 37 32 33 34>;
+        };
+
+        hlh: hold_layer_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        hlt: hold_layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
     };
 
-        keymap {
-                compatible = "zmk,keymap";
-// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+    keymap {
+        compatible = "zmk,keymap";
 
-                base_layer {
-// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-label= "BASE"                              ;
-// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-//             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃     X     ┃     F     ┃     D     ┃     P     ┃     Q     ┃   ┃     J     ┃     '     ┃     O     ┃     U     ┃     .     ┃
-//             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-//             ┃     N     ┃     S     ┃     T     ┃     C     ┃     Y     ┃   ┃     M     ┃     H     ┃     A     ┃     E     ┃     I     ┃
-// ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-// ┃     Q     ┃     B     ┃     V     ┃     K     ┃     G     ┃     W     ┃   ┃     Z     ┃     L     ┃     ;     ┃     /     ┃     ,     ┃     \     ┃
-// ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-//                                     ┃    DEL    ┃    SPC    ┃    SHFT   ┃   ┃   BSPC    ┃     R     ┃   BSPC    ┃
-//                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
- bindings = <
-// ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
+        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-                &kp X       &kp F       &kp D       &kp P       &kp Q           &kp J       &kp SQT     &kp O       &kp U       &kp DOT
-                &lh LSHFT N &lh LALT S  &lh LCTRL T &lh LMETA C &kp Y           &kp M       &rh LMETA H &rh LCTRL A &rh LALT E  &rh RSHFT I
-    &kp Q       &kp B       &kp V       &kp K       &kp G       &kp W           &kp Z       &kp L       &kp SEMI    &kp FSLH    &kp COMMA    &kp BSLH
-                                &kp DEL   &hlt NAV SPACE   &shft FUN LSHFT      &hlt NUM BSPC &hlh SYM R  &none
-                        >;
-                };
+        base_layer {
+            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 
-// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+            label = "BASE";
 
+            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
+            //             ┃     X     ┃     F     ┃     D     ┃     P     ┃     Q     ┃   ┃     J     ┃     '     ┃     O     ┃     U     ┃     .     ┃
+            //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
+            //             ┃     N     ┃     S     ┃     T     ┃     C     ┃     Y     ┃   ┃     M     ┃     H     ┃     A     ┃     E     ┃     I     ┃
+            // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
+            // ┃     Q     ┃     B     ┃     V     ┃     K     ┃     G     ┃     W     ┃   ┃     Z     ┃     L     ┃     ;     ┃     /     ┃     ,     ┃     \     ┃
+            // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+            //                                     ┃    DEL    ┃    SPC    ┃    SHFT   ┃   ┃   BSPC    ┃     R     ┃   BSPC    ┃
+            //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
-    sym_layer {
-      label= "SYM";
-      bindings = <
-                &kp LS(LBKT) &kp LS(N7) &kp LS(N8)  &kp LS(N9)  &kp LS(RBKT)    &none       &trans      &kp RET     &none       &trans
-                &kp SEMI     &kp LS(N4) &kp LS(N5)  &kp LS(N6)  &kp EQUAL       &none       &kp LGUI    &kp LCTRL   &kp LALT    &kp LSHFT
-    &none      &kp LS(GRAVE) &kp LS(N1) &kp LS(N2)  &kp LS(N3)  &kp LS(BSLH)    &none       &none     &kp LS(COMMA) &kp LS(DOT) &trans      &none      
-                                        &none       &kp LS(N0)  &kp LS(MINUS)   &none       &none       &none      
-      >;
+            bindings = <
+       &kp X        &kp F       &kp D        &kp P           &kp Q              &kp J          &kp SQT      &kp O        &kp U       &kp DOT
+       &lh LSHFT N  &lh LALT S  &lh LCTRL T  &lh LMETA C     &kp Y              &kp M          &rh LMETA H  &rh LCTRL A  &rh LALT E  &rh RSHFT I
+&kp Q  &kp B        &kp V       &kp K        &kp G           &kp W              &kp Z          &kp L        &kp SEMI     &kp FSLH    &kp COMMA    &kp BSLH
+                                &kp DEL      &hlt NAV SPACE  &shft FUN LSHFT    &hlt NUM BSPC  &hlh SYM R   &none
+            >;
+        };
+
+        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+        sym_layer {
+            label = "SYM";
+            bindings = <
+       &kp LS(LBKT)   &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &kp LS(RBKT)     &none  &trans    &kp RET        &none        &trans
+       &kp SEMI       &kp LS(N4)  &kp LS(N5)  &kp LS(N6)  &kp EQUAL        &none  &kp LGUI  &kp LCTRL      &kp LALT     &kp LSHFT
+&none  &kp LS(GRAVE)  &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &kp LS(BSLH)     &none  &none     &kp LS(COMMA)  &kp LS(DOT)  &trans     &none
+                                  &none       &kp LS(N0)  &kp LS(MINUS)    &none  &none     &none
+            >;
+        };
+
+        num_layer {
+            label = "NUM";
+            bindings = <
+       &kp LBKT      &kp N7  &kp N8  &kp N9  &kp RBKT         &none  &trans    &none          &none        &trans
+       &kp LS(SEMI)  &kp N4  &kp N5  &kp N6  &kp LS(EQUAL)    &none  &kp LGUI  &kp LCTRL      &kp LALT     &kp LSHFT
+&none  &kp GRAVE     &kp N1  &kp N2  &kp N3  &kp BSLH         &none  &none     &kp LS(COMMA)  &kp LS(DOT)  &trans     &none
+                             &none   &kp N0  &kp MINUS        &none  &none     &none
+            >;
+        };
+
+        nav_layer {
+            label = "NAV";
+            bindings = <
+       &none      &none     &none      &none     &none       &none    &kp HOME  &kp UP    &kp PG_UP  &none
+       &kp LSHFT  &kp LALT  &kp LCTRL  &kp LGUI  &none       &none    &kp LEFT  &kp DOWN  &kp RIGHT  &kp TAB
+&none  &none      &none     &none      &none     &kp BSLH    &none    &kp END   &none     &kp PG_DN  &none    &none
+                            &none      &none     &none       &kp RET  &kp ESC   &none
+            >;
+        };
+
+        fun_layer {
+            label = "FUN";
+            bindings = <
+       &none      &none     &none      &none     &none       &none   &kp F7  &kp F8  &kp F9  &kp F12
+       &kp LSHFT  &kp LALT  &kp LCTRL  &kp LGUI  &none       &none   &kp F5  &kp F6  &kp F6  &kp F11
+&none  &none      &none     &none      &none     &kp BSLH    &none   &kp F1  &kp F2  &kp F3  &kp F10  &none
+                            &none      &none     &none       &trans  &trans  &none
+            >;
+        };
     };
-
-    num_layer {
-      label= "NUM";
-      bindings = <
-                &kp LBKT     &kp N7     &kp N8      &kp N9      &kp RBKT        &none       &trans      &none       &none       &trans
-                &kp LS(SEMI) &kp N4     &kp N5      &kp N6      &kp LS(EQUAL)   &none       &kp LGUI    &kp LCTRL   &kp LALT    &kp LSHFT
-    &none       &kp GRAVE    &kp N1     &kp N2      &kp N3      &kp BSLH        &none       &none     &kp LS(COMMA) &kp LS(DOT) &trans      &none      
-                                        &none       &kp N0      &kp MINUS       &none       &none       &none      
-      >;
-    };
-
-    nav_layer {
-      label= "NAV";
-      bindings = <
-                &none        &none      &none       &none       &none           &none       &kp HOME    &kp UP      &kp PG_UP   &none
-                &kp LSHFT    &kp LALT   &kp LCTRL   &kp LGUI    &none           &none       &kp LEFT    &kp DOWN    &kp RIGHT   &kp TAB
-    &none       &none        &none      &none       &none       &kp BSLH        &none       &kp END     &none       &kp PG_DN   &none       &none      
-                                        &none       &none       &none           &kp RET     &kp ESC     &none      
-      >;
-    };
-
-    fun_layer {
-      label= "FUN";
-      bindings = <
-                &none        &none      &none       &none       &none           &none       &kp F7      &kp F8      &kp F9      &kp F12
-                &kp LSHFT    &kp LALT   &kp LCTRL   &kp LGUI    &none           &none       &kp F5      &kp F6      &kp F6      &kp F11
-    &none       &none        &none      &none       &none       &kp BSLH        &none       &kp F1      &kp F2      &kp F3      &kp F10     &none      
-                                        &none       &none       &none           &trans      &trans      &none      
-      >;
-    };
-  };
 };
