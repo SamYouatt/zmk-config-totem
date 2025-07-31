@@ -105,7 +105,7 @@
             bindings = <
        &kp X        &kp F       &kp D        &kp P           &kp Q              &kp J          &kp SQT      &kp O        &kp U       &kp DOT
        &lh LSHFT N  &lh LALT S  &lh LCTRL T  &lh LMETA C     &kp Y              &kp M          &rh LMETA H  &rh LCTRL A  &rh LALT E  &rh RSHFT I
-&kp Q  &kp B        &kp V       &kp K        &kp G           &kp W              &kp Z          &kp L        &kp SEMI     &kp FSLH    &kp COMMA    &kp BSLH
+&none  &kp B        &kp V       &kp K        &kp G           &kp W              &kp Z          &kp L        &kp SEMI     &kp FSLH    &kp COMMA    &none
                                 &none        &hlt NAV SPACE  &shft FUN LSHFT    &hlh NUM BSPC  &hlt SYM R   &none
             >;
         };
@@ -143,10 +143,10 @@
         fun_layer {
             label = "FUN";
             bindings = <
-       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none       &none   &kp F7  &kp F8  &kp F9  &kp F12
-       &kp LSHFT     &kp LALT      &kp LCTRL     &kp LGUI      &none       &none   &kp F4  &kp F5  &kp F6  &kp F11
-&none  &none         &none         &none         &none         &kp BSLH    &none   &kp F1  &kp F2  &kp F3  &kp F10  &none
-                                   &none         &none         &none       &trans  &trans  &none
+       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none    &none   &kp F7  &kp F8  &kp F9  &kp F12
+       &kp LSHFT     &kp LALT      &kp LCTRL     &kp LGUI      &none    &none   &kp F4  &kp F5  &kp F6  &kp F11
+&none  &none         &none         &none         &none         &none    &none   &kp F1  &kp F2  &kp F3  &kp F10  &none
+                                   &none         &none         &none    &trans  &trans  &none
             >;
         };
     };
