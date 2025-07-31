@@ -31,6 +31,23 @@
   tapping-term-ms = <170>;
 };
 
+&quick_shift {
+    compatible = "zmk,behavior-sticky-key";
+    #binding-cells = <1>;
+    bindings = <&kp>;
+    release-after-ms = <1000>;
+    quick-release;
+};
+
+&shft {
+    compatible = "zmk,behavior-hold-tap";
+    #binding-cells = <2>;
+    flavor = "tap-preferred";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <200>;
+    bindings = <&mo>, <&quick_shift>;
+};
+
 / {
      combos {
             compatible = "zmk,combos";
@@ -75,7 +92,7 @@ label= "BASE";
 // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
 // ┃     Q     ┃     B     ┃     V     ┃     K     ┃     G     ┃     W     ┃   ┃     Z     ┃     L     ┃     ;     ┃     /     ┃     ,     ┃     \     ┃
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-//                                     ┃    DEL    ┃    SPC    ┃           ┃   ┃   BSPC    ┃     R     ┃   BSPC    ┃
+//                                     ┃    DEL    ┃    SPC    ┃    SHFT   ┃   ┃   BSPC    ┃     R     ┃   BSPC    ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
@@ -83,7 +100,7 @@ label= "BASE";
                 &kp X       &kp F       &kp D       &kp P       &kp Q           &kp J       &kp SQT     &kp O       &kp U       &kp DOT
                 &mt LGUI N  &mt LALT S  &mt LCTRL T &mt LSHFT C &kp Y           &kp M       &mt RSHFT H &mt RCTRL A &mt RALT E  &mt RGUI i
     &kp Q       &kp B       &kp V       &kp K       &kp G       &kp W           &kp Z       &kp L       &kp SEMI    &kp FSLH    &kp COMMA    &kp BSLH
-                                        &kp DEL   &lt NAV SPACE   &kp SPACE   &kp BSPC   &lt SYM R   &kp BSPC
+                                &kp DEL   &lt NAV SPACE   &shft NAV SHIFT          &kp BSPC   &lt SYM R   &kp BSPC
                         >;
                 };
 
