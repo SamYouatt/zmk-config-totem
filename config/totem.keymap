@@ -22,7 +22,7 @@
 #define SYM  1
 #define NUM  2
 #define NAV  3
-#define FNC  4
+#define FUN  4
 #define MISC 5
 
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left hand
