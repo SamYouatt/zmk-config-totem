@@ -105,7 +105,7 @@
             bindings = <
        &kp X        &kp F       &kp D        &kp P           &kp Q              &kp J          &kp SQT      &kp O        &kp U       &kp DOT
        &lh LSHFT N  &lh LALT S  &lh LCTRL T  &lh LMETA C     &kp Y              &kp M          &rh LMETA H  &rh LCTRL A  &rh LALT E  &rh RSHFT I
-&none  &kp B        &kp V       &kp K        &kp G           &kp W              &kp Z          &kp L        &kp SEMI     &kp FSLH    &kp COMMA    &none
+&to 5  &kp B        &kp V       &kp K        &kp G           &kp W              &kp Z          &kp L        &kp SEMI     &kp FSLH    &kp COMMA    &none
                                 &none        &hlt NAV SPACE  &shft FUN LSHFT    &hlh NUM BSPC  &hlt SYM R   &none
             >;
         };
@@ -147,6 +147,42 @@
        &kp LSHFT     &kp LALT      &kp LCTRL     &kp LGUI      &none    &none   &kp F4  &kp F5  &kp F6  &kp F11
 &none  &none         &none         &none         &none         &none    &none   &kp F1  &kp F2  &kp F3  &kp F10  &none
                                    &none         &none         &none    &trans  &trans  &none
+            >;
+        };
+
+        james0 {
+            bindings = <
+       &kp B             &kp L           &kp D           &kp C             &kp V            &kp J         &kp Y         &kp O           &kp U           &kp COMMA
+       &lh LEFT_SHIFT N  &lh LEFT_GUI R  &lh LEFT_ALT T  &lh LCTRL S       &kp G            &kp P         &rh LCTRL H   &rh LEFT_ALT A  &rh LEFT_GUI E  &rh LEFT_SHIFT I
+&to 0  &kp X             &kp Q           &kp M           &kp W             &kp Z            &kp K         &kp F         &kp APOS        &kp UNDERSCORE  &kp DOT           &trans
+                                         &trans          &hlt 6 BACKSPACE  &shft 5 LSHFT    &hlt 8 SPACE  &hlh 7 ENTER  &trans
+            >;
+        };
+
+        james1 {
+            bindings = <
+        &kp ESC         &kp LCTRL     &trans        &kp C      &kp V        &kp HOME  &kp CARET   &kp UP    &kp DOLLAR  &kp ESC
+        &sk LEFT_SHIFT  &sk LEFT_GUI  &sk LEFT_ALT  &sk LCTRL  &kp ENTER    &kp END   &kp LEFT    &kp DOWN  &kp RIGHT   &caps_word
+&trans  &trans          &kp LEFT_GUI  &kp LEFT_ALT  &trans     &kp LG(Z)    &trans    &kp DELETE  &kp TAB   &kp PG_UP   &kp PG_DN   &trans
+                                      &trans        &trans     &trans       &trans    &trans      &trans
+            >;
+        };
+
+        james2 {
+            bindings = <
+        &kp LEFT_BRACE  &kp DOUBLE_QUOTES  &kp ASTERISK  &kp LPAR   &kp RBRC     &trans  &trans     &trans        &trans        &trans
+        &kp SEMI        &kp MINUS          &kp COLON     &kp EQUAL  &kp AMPS     &trans  &sk LCTRL  &sk LEFT_ALT  &sk LEFT_GUI  &sk LEFT_SHIFT
+&trans  &kp QUESTION    &kp PIPE           &kp PLUS      &kp FSLH   &kp TILDE    &trans  &trans     &trans        &trans        &trans          &trans
+                                           &trans        &kp RPAR   &kp EXCL     &trans  &trans     &trans
+            >;
+        };
+
+        james3 {
+            bindings = <
+        &kp LBKT   &kp N7  &kp N8  &kp N9   &kp RBKT       &kp F6  &kp F9     &kp F10       &kp F11       &kp F12
+        &kp HASH   &kp N4  &kp N5  &kp N6   &kp PERCENT    &kp F7  &sk LCTRL  &sk LEFT_ALT  &sk LEFT_GUI  &sk LEFT_SHIFT
+&trans  &kp GRAVE  &kp N1  &kp N2  &kp N3   &kp BSLH       &kp F8  &kp F2     &kp F3        &kp F4        &kp F5          &trans
+                           &trans  &kp DOT  &kp N0         &trans  &trans     &trans
             >;
         };
     };
