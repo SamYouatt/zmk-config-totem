@@ -105,6 +105,12 @@
             key-positions = <10 19>;
             layers = <3>;
         };
+
+        jamescaps {
+            bindings = <&caps_word>;
+            key-positions = <21 22>;
+            layers = <5>;
+        };
     };
 
     keymap {
@@ -171,10 +177,10 @@
 
         james1 {
             bindings = <
-        &kp ESC         &kp LCTRL     &trans        &kp C      &kp V        &kp HOME  &kp CARET   &kp UP    &kp DOLLAR  &kp ESC
-        &sk LEFT_SHIFT  &sk LEFT_GUI  &sk LEFT_ALT  &sk LCTRL  &kp ENTER    &kp END   &kp LEFT    &kp DOWN  &kp RIGHT   &caps_word
-&trans  &trans          &kp LEFT_GUI  &kp LEFT_ALT  &trans     &kp LG(Z)    &trans    &kp DELETE  &kp TAB   &kp PG_UP   &kp PG_DN   &trans
-                                      &trans        &trans     &trans       &trans    &trans      &trans
+        &kp ESC         &kp LCTRL     &trans        &kp C      &kp V        &kp HOME  &kp CARET  &kp UP    &kp DOLLAR  &kp ESC
+        &sk LEFT_SHIFT  &sk LEFT_GUI  &sk LEFT_ALT  &sk LCTRL  &kp ENTER    &kp END   &kp LEFT   &kp DOWN  &kp RIGHT   &kp DELETE
+&trans  &trans          &kp LEFT_GUI  &kp LEFT_ALT  &trans     &kp LG(Z)    &kp BSLH  &kp TAB    &none     &kp PG_UP   &kp PG_DN   &trans
+                                      &trans        &trans     &trans       &trans    &trans     &trans
             >;
         };
 
@@ -190,8 +196,8 @@
         james3 {
             bindings = <
         &kp LBKT   &kp N7  &kp N8  &kp N9   &kp RBKT       &kp F6  &kp F9     &kp F10       &kp F11       &kp F12
-        &kp HASH   &kp N4  &kp N5  &kp N6   &kp PERCENT    &kp F7  &sk LCTRL  &sk LEFT_ALT  &sk LEFT_GUI  &sk LEFT_SHIFT
-&trans  &kp GRAVE  &kp N1  &kp N2  &kp N3   &kp BSLH       &kp F8  &kp F2     &kp F3        &kp F4        &kp F5          &trans
+        &kp HASH   &kp N4  &kp N5  &kp N6   &kp AT         &kp F7  &sk LCTRL  &sk LEFT_ALT  &sk LEFT_GUI  &sk LEFT_SHIFT
+&trans  &kp GRAVE  &kp N1  &kp N2  &kp N3   &kp PERCENT    &kp F8  &kp F2     &kp F3        &kp F4        &kp F5          &trans
                            &trans  &kp DOT  &kp N0         &trans  &trans     &trans
             >;
         };
